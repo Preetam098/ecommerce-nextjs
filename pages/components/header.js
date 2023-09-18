@@ -1,5 +1,5 @@
 import React from "react";
-import Icon from "../../public/assets/icon.png";
+import Icon from "../../public/icon.png";
 import Link from "next/link";
 import { useRouter } from 'next/router';
 

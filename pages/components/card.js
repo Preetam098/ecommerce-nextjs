@@ -1,21 +1,24 @@
 import React, { useEffect, useState } from "react";
-import { fetchData } from "@/utilis/product";
+import fetchDataapi from "../api/getproducts";
+
 
 const Card = () => {
   const [datas, setData] = useState();
 
-  const fetchDataFromAPI = async () => {
-    try {
-      const data = await fetchData();
-      setData(data);
-    } catch (error) {
-      console.error("Error fetching data:", error);
-    }
-  };
-
   useEffect(() => {
-    fetchDataFromAPI();
-  });
+    const fetchData = async () => {
+      try {
+        const response = await fetch(fetchDataapi);
+        const jsonData = await response.json();
+        setData(jsonData);
+        console.log(jsonData)
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    };
+
+    fetchData();
+  }, []);
 
   return (
     <>
@@ -23,7 +26,7 @@ const Card = () => {
       <section class="w-fit mx-auto grid grid-cols-1 lg:grid-cols-4 md:grid-cols-2 justify-items-center justify-center gap-y-20 gap-x-14 mt-10 mb-5">
         {/* <!--   ✅ Product card 1 - Starts Here 👇 --> */}
 
-        {datas &&
+        {/* {datas &&
           datas.map((item) => (
             <>
               <div class="w-72 bg-white shadow-md rounded-xl duration-500 hover:scale-105 hover:shadow-xl">
@@ -70,7 +73,7 @@ const Card = () => {
                 </a>
               </div>
             </>
-          ))}
+          ))} */}
        
         {/* <!--   🛑 Product card 1 - Ends Here  --> */}
       </section>

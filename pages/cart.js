@@ -4,7 +4,6 @@ import { useRouter } from "next/router";
 
 const Cart = () => {
   const router = useRouter();
-
   const goToCartPage = () => {
     router.push("/header");
   };
