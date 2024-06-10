@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { fetchData } from "@/utilis/product";
+// import { fetchData } from "@/utilis/product";
 
 const Shop = () => {
   const [datas, setData] = useState();
